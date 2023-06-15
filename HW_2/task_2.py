@@ -12,8 +12,8 @@ def convert_to_hex(int_num):
                   11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f'}
     result = ''
 
-    while int_num > 0:
-        result = dictionary.get(int_num % BASE) + result
+    while int_num:
+        result = dictionary[int_num % BASE] + result
         int_num //= BASE
 
     return result
