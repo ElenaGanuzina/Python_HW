@@ -14,7 +14,7 @@
 
 
 def frequency_dict():
-    data = "".join(item for item in (input("Enter some text: ")) if item.isalpha())
+    data = "".join(item for item in input("Enter some text: ") if item.isalpha())
     dictionary = {}
 
     # using .count()
