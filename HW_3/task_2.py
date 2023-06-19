@@ -13,10 +13,7 @@ def sorted_words():
     data = input("Enter something: ")
     lst = data.split()
     lst.sort()
-    maxi = 0
-    for item in lst:
-        if len(item) > maxi:
-            maxi = len(item)
+    maxi = len(max(lst, key=len))
     maxi = maxi + SPACE
     for i, elem in enumerate(lst, 1):
         print(f'{i}{elem:>{maxi}}')
