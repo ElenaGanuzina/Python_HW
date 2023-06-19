@@ -18,9 +18,8 @@ def frequency_dict():
     dictionary = {}
 
     # using .count()
-    for elem in data:
-        if elem not in dictionary:
-            dictionary[elem] = data.count(elem)
+    for elem in set(data):
+        dictionary[elem] = data.count(elem)
     return dictionary
 
     # without .count()
