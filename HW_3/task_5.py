@@ -11,10 +11,10 @@ lst = [10, 4, 5, 33, 33, 7, 0, 3, 7, 9, 0]
 
 def frequent_elements(my_lst):
     new_lst = []
-    for item in my_lst:
+    for item in set(my_lst):
         if my_lst.count(item) > 1:
             new_lst.append(item)
-    return [*set(new_lst)]
+    return new_lst
 
 
 print(frequent_elements(lst))
