@@ -11,7 +11,7 @@ def func():
     temp_dict = {}
     my_dict = {key: value for key, value in globals().items() if key.endswith('s') and key != 's'}
     for key, value in my_dict.items():
-        temp_dict[str(key)[:-1]] = value
+        temp_dict[key[:-1]] = value
         my_dict[key] = None
     # Проверка исходных сохраненных значений.
     # print(temp_dict)
