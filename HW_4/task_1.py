@@ -19,4 +19,4 @@ def sum_list_num(some_list, start, end):
 
 
 lst = [4, 6, 9, 10, 1]
-print(sum_list_num(lst, 0, 5))
+print(sum_list_num(lst, 5, 4))
