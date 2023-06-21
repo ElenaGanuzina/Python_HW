@@ -14,8 +14,8 @@ def profit_check(some_dict):
         print(lst)
     if all(item > 0 for item in lst):
         return True
-    else:
-        return False
+
+    return False
 
 
 companies_dict = {"Oceanic Airlines": [900, -460, 843, -735, 333],
