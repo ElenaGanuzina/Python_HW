@@ -6,8 +6,7 @@ from time import sleep
 
 
 def fibonacci_gen():
-    x = 0
-    y = 1
+    x, y= 0, 1
     while True:
         yield x + y
         sleep(2)
