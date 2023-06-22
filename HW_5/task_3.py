@@ -8,10 +8,9 @@ from time import sleep
 def fibonacci_gen():
     x, y= 0, 1
     while True:
-        yield x + y
+        yield x
         sleep(2)
-        y = x + y
-        x = y - x
+        x, y= y, x + y
 
 
 def print_fib(num):
