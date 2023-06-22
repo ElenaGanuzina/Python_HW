@@ -10,7 +10,7 @@
 
 
 def bonus_calc(names, salaries, rates):
-    yield {name: (salary / 100) * float(str(rate).strip("%")) for name, salary, rate in zip(names, salaries, rates)}
+    yield {name: (salary / 100) * float(rate.strip("%")) for name, salary, rate in zip(names, salaries, rates)}
 
 
 names = ["Sam", "Dave", "Pam", "Liam"]
