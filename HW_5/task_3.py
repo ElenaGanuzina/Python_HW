@@ -6,11 +6,11 @@ from time import sleep
 
 
 def fibonacci_gen():
-    x, y= 0, 1
+    x, y = 0, 1
     while True:
         yield x
-        sleep(2)
-        x, y= y, x + y
+        # sleep(2)
+        x, y = y, x + y
 
 
 def print_fib(num):
