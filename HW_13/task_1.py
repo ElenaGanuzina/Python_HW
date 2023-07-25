@@ -1,12 +1,18 @@
+from Exceptions import NegativeValueException
+
+
 class Rectangle:
     """Test class Rectangle."""
     __slots__ = ('_length', '_width')
 
     def __init__(self, length, width=None):
         """Creates a rectangle."""
+        if length <= 0:
+            raise NegativeValueException(length)
         self._length = length
-        if width is None:
-            self._width = length
+        if width is not None:
+            if width <= 0:
+                raise NegativeValueException(width)
         else:
             self._width = width
 
@@ -20,17 +26,20 @@ class Rectangle:
 
     @length.setter
     def length(self, value):
-        if value <= 0:
-            raise ValueError(f"Rectangular length cannot be negative.")
-        else:
+        try:
             self._length = value
+        except NegativeValueException as e:
+            print(f"The value of attribute 'length' is outside of acceptable limits.\n"
+                  f"NegativeValueException is raised: {e}.")
+        self._length = value
 
     @width.setter
     def width(self, value):
-        if value <= 0:
-            raise ValueError(f"Rectangular width cannot be negative.")
-        else:
+        try:
             self._width = value
+        except NegativeValueException as e:
+            print(f"The value of attribute 'width' is outside of acceptable limits.\n"
+                  f"NegativeValueException is raised: {e}.")
 
     def __str__(self):
         return f'Rectangle with length = {self.length} and width = {self.width}.'
@@ -81,7 +90,7 @@ class Rectangle:
 
 
 if __name__ == '__main__':
-    rec_1 = Rectangle(4, 5)
+    rec_1 = Rectangle(-4, 5)
     rec_2 = Rectangle(7, 4)
     print(f'{rec_1.get_perimeter() = }\n{rec_2.get_perimeter() = }')
     rec_3 = rec_1 - rec_2
