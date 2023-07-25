@@ -1,5 +1,5 @@
 from random import randint
-from sys import argv
+from Exceptions import NotIntegerException
 
 MAXIMUM = 100
 MINIMUM = 0
@@ -10,12 +10,15 @@ def guess_the_number(MINIMUM, MAXIMUM, count=ATTEMPTS):
     number = randint(MINIMUM, MAXIMUM)
     while count > 0:
         count -= 1
-
+        variant = input(f"Guess the number I've thought of. Try numbers from {MINIMUM} to {MAXIMUM}: ")
+        if not variant.isdigit():
+            raise NotIntegerException(variant)
         try:
-            variant = int(input(f"Guess the number I've thought of. Try numbers from {MINIMUM} to {MAXIMUM}: "))
-        except ValueError as e:
-            print(f'Your input was not an integer and has caused ValueError: {e}.')
+            variant = int(variant)
+        except NotIntegerException as e:
+            print(e)
         else:
+            variant = int(variant)
             if MINIMUM > variant or MAXIMUM < variant:
                 print(f'Your number is out of range. You have {count} attempts left.')
             elif variant < number:
@@ -32,4 +35,3 @@ def guess_the_number(MINIMUM, MAXIMUM, count=ATTEMPTS):
 
 if __name__ == '__main__':
     print(guess_the_number(0, 100))
-
